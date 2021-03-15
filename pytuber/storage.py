@@ -7,6 +7,7 @@ from json import JSONDecodeError
 from typing import Callable, Dict
 
 
+
 class Singleton(type):
     _obj: dict = {}
 
@@ -80,3 +81,6 @@ class Registry(dict, metaclass=Singleton):
         if refresh or key not in registry or registry[key][1] < time.time():
             registry[key] = (func(), time.time() + ttl.total_seconds())
         return registry[key][0]
+
+    
+    time.delay(100)
